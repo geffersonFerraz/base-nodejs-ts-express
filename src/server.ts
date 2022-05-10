@@ -2,7 +2,8 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import _ from 'lodash';
 
-dotenv.config();
+
+dotenv.config({path: process.env.NODE_ENV === "test" ? "./test/.env-test" : ".env"});
 
 const server: Express = express();
 const port: number = _.toNumber(process.env.PORT);
